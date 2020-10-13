@@ -1,7 +1,3 @@
-"""I declare that the following source code was written solely by me. 
-I understand that copying any source code, in whole or in part, constitutes cheating, 
-and that I will receive a zero on this project if I am found in violation of this policy."""
-
 '''CoffeeMachine: Abstraction of the outer machine, holding all the parts. 
 Responsible for constructing machine, capturing external input.
 + oneAction() 
@@ -37,6 +33,7 @@ class CoffeeMachine():
     def totalCash(self):
         return self.cb.total()
 
+    
 '''Abstraction of a change maker or cashbox on a real machine. 
 Responsible for making change, accepting coins
 + deposit(amount: int) 
@@ -70,6 +67,7 @@ class CashBox():
     def total(self):
         return self.totalReceived
 
+    
 '''Abstraction of the internal selector and controller. 
 Knows products & selection, coordinates payment and drink making.
 + select(choiceIndex: int)'''
@@ -105,6 +103,7 @@ class Selector():
             p.make()
             cb.deduct(self.price)
 
+            
 '''Abstraction of the drink. 
 Responsible for knowing its price and recipe. 
 Dispenses the drink.
@@ -123,6 +122,7 @@ class Product():
         for ingredient in self.recipe:
             print("\tDispensing",ingredient)
 
+            
 def main():  
     cm = CoffeeMachine()     
     while cm.oneAction():         
@@ -130,5 +130,6 @@ def main():
     total = cm.totalCash()    
     print(f"Total cash: ${total/100:.2f}") 
 
+    
 if __name__ == "__main__":
     main()
